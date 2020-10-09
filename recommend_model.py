@@ -79,16 +79,17 @@ feature = ['gender_female','gender_male',
            'interest_education_adult','interest_international','interest_internship',
            'interest_justice','interest_refugee','interest_school','interest_sports',
            'interest_tech','interest_family','interest_arts','interest_civic',
-           'oppo_cat_interest_elderly','oppo_cat_interest_disaster',
-           'oppo_cat_interest_education_young','oppo_cat_interest_worker',
-           'oppo_cat_interest_environment','oppo_cat_interest_education_refugee',
-           'oppo_cat_interest_health','oppo_cat_interest_hunger',
-           'oppo_cat_interest_homeless','oppo_cat_interest_education_adult',
-           'oppo_cat_interest_international','oppo_cat_interest_internship',
-           'oppo_cat_interest_justice','oppo_cat_interest_refugee',
-           'oppo_cat_interest_school','oppo_cat_interest_sports',
-           'oppo_cat_interest_tech','oppo_cat_interest_family',
-           'oppo_cat_interest_arts','oppo_cat_interest_civic']
+           'oppo_cat_elderly','oppo_cat_disaster',
+           'oppo_cat_education_young','oppo_cat_worker',
+           'oppo_cat_environment','oppo_cat_education_refugee',
+           'oppo_cat_health','oppo_cat_hunger',
+           'oppo_cat_homeless','oppo_cat_education_adult',
+           'oppo_cat_international','oppo_cat_internship',
+           'oppo_cat_justice','oppo_cat_refugee',
+           'oppo_cat_school','oppo_cat_sports',
+           'oppo_cat_tech','oppo_cat_family',
+           'oppo_cat_arts','oppo_cat_civic',
+           'click_response']
 
 
 
@@ -153,6 +154,9 @@ for cat_abbr in cats_abbr:
     vars()['user_matrix_'+'oppo_cat_'+cat_abbr] = tmp_pdseries
 
 
+## Construct dummy click response for feedback reinforcement
+user_matrix_click_response = pd.Series([random.shuffle([0]*int(len(user_matrix_id)/2))+[1]*(len(user_matrix_id)-int(len(user_matrix_id)/2))])
+
 
 ## Build feature matrix for user
 user_matrix = pd.DataFrame(user_matrix_id)
@@ -178,12 +182,15 @@ for i in range(len(user_matrix)):
 
 
 user_recommend_opportunity = []
-for cat in pred_result_cats[0]:
-    opportunities = program_f[program_f['impact_area'].str.contains('Hunger')]
-    user_recommend_opportunity.append(opportunities.iloc[random.randint(0,len(opportunities)-1)])
+for j in range(len(user_matrix_id):
+    for cat in pred_result_cats[j]:
+        if program_f['impact_area'].str.contains(cat).value_counts(False) == len(program_f):
+          continue 
+        opportunities = program_f[program_f['impact_area'].str.contains(cat)]
+        user_recommend_opportunity.append(opportunities.iloc[random.randint(0,len(opportunities)-1)])
 
-user_recommend_opportunity = pd.concat(user_recommend_opportunity,axis=1).T
+    user_recommend_opportunity = pd.concat(user_recommend_opportunity,axis=1).T
 
-## Save to JSON
-user_recommend_opportunity.to_json(r'test.json')
+    ## Save to JSON
+    user_recommend_opportunity.to_json(r'user_recommend_program_{j}.json'.format(j=j))
 
