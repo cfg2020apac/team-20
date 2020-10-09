@@ -1,0 +1,33 @@
+<div class="wrapper">
+    <div class="content">
+        <div class="title">
+            Anything Else You are Interested to Join for Now?
+        </div>
+        <div class="cats">
+            <!-- <div class="cat" *ngFor='let category of categories'>
+                {{category}}
+            </div> -->
+            <div *ngFor="let category of categories; let i = index">
+                <div *ngIf="i % 2 == 0" class="row">
+                  <div class='cell' [ngClass]='styles[i] ? "selected" : ""' (click)='onClick(i)'>
+                      <div class='text'>  
+                          {{ category }}
+                        </div> 
+                    </div>
+                  <div class='cell' [ngClass]='styles[i+1] ? "selected" : ""' *ngIf="i + 1 < categories.length" (click)='onClick(i+1)'>
+                      <div class='text'>
+                          {{ categories[i + 1] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="submit">
+            <div class="btn" (click)='onSubmit()'>
+                <div class="btn-text">
+                    NEXT
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

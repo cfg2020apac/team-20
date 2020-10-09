@@ -1,9 +1,9 @@
 <!-- <p>profile-nav works!</p> -->
 <div class="content">
     <div class="wrapper">
-        <div class="links" *ngFor='let item of items'>
+        <div class="links" *ngFor='let item of items' routerLink='{{item.link}}'>
             <img src='/assets/bookmarks.svg'>
-            <div class='text'>{{item}}</div>
+            <div class='text'>{{item.name}}</div>
         </div>
     </div>
 </div>

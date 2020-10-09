@@ -9,12 +9,12 @@ export class ProfileNavComponent implements OnInit {
 
   constructor() { }
   items=[
-    'Overview',
-    'Personal Information',
-    'Skills & Interest',
-    'My Teams',
-    'Recommendation',
-    'Saved Searches'
+    {name:'Overview',link:'/profile'},
+    {name:'Personal Information',link:'/info'},
+    {name:'Skills & Interest',link:'/'},
+    {name:'My Teams',link:'/'},
+    {name:'Recommendation',link:'/'},
+    {name:'Saved Searches',link:'/'},
   ]
   ngOnInit(): void {
   }

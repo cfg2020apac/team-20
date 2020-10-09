@@ -1,0 +1,71 @@
+.wrapper{
+    height:100%;
+    .content{
+        padding-top:200px;
+        margin-bottom:100px;
+
+    }
+}
+.title{
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 75px;
+    text-align: center;
+    color: #35B5B3;
+    padding-left:100px;
+    padding-right:100px;
+}
+.card{
+    // width: calc(33.3% - 10px);
+    width:240px;
+    height:250px;
+    background: #FAFAFA;
+box-shadow: 0px 0.686046px 3.43023px rgba(0, 0, 0, 0.2), 0px 2.05814px 2.74419px rgba(0, 0, 0, 0.12), 0px 1.37209px 2.74419px rgba(0, 0, 0, 0.14);
+border-radius: 2.74419px;
+}
+.row{
+    display:flex;
+    justify-content: space-around;
+    margin-top:50px;
+}
+.info{
+    padding:15px;
+    .date{
+        font-size:10px;
+        margin-bottom:10px;
+    }
+    .name{
+        font-size:14px;
+        margin-bottom:5px;
+    }
+    .skills{
+        color: rgba(0, 0, 0, 0.6);
+        font-size:12px;
+    }
+    .more{
+        text-align: right;
+        color:#2196F3;
+        margin-top:15px;
+    }
+}
+.submit{
+    position: relative;
+    .btn{
+        position: absolute;
+        top:25px;
+        right:25px;
+        height:50px;
+        width:180px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #4A0E80;
+        margin-top:50px;
+        margin-bottom:50px;
+        .btn-text{
+            color:white;
+            font-size: 36px;
+            font-weight: 500;
+        }
+    }
+}

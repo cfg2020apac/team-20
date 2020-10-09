@@ -1,0 +1,75 @@
+<div class="wrapper">
+    <div class="content">
+        <div class="title">
+            Here Are What We Think You Might Like
+        </div>
+        <div *ngFor="let card of cards; let i = index">
+            <div *ngIf="i % 3 == 0" class="row">
+              <div class='card'  >
+                <div class="img">
+                    <img src='assets/ngo-image.svg'>
+                </div>
+                <div class="info">
+                    <div class="date">
+                        29-10-2020
+                    </div>
+                    <div class="name">
+                        Distributing Care Packages
+                    </div>
+                    <div class="skills">
+                        Skills Needed: IT/Photography
+                    </div>
+                    <div class="more">
+                        MORE INFO
+                    </div>
+                </div> 
+                </div>
+              <div class='card'  *ngIf="i + 1 < cards.length" >
+                <div class="img">
+                    <img src='assets/ngo-image.svg'>
+                </div>
+                <div class="info">
+                    <div class="date">
+                        29-10-2020
+                    </div>
+                    <div class="name">
+                        Distributing Care Packages
+                    </div>
+                    <div class="skills">
+                        Skills Needed: IT/Photography
+                    </div>
+                    <div class="more">
+                        MORE INFO
+                    </div>
+                </div>
+                </div>
+                <div class='card'  *ngIf="i + 2 < cards.length" >
+                    <div class="img">
+                        <img src='assets/ngo-image.svg'>
+                    </div>
+                    <div class="info">
+                        <div class="date">
+                            29-10-2020
+                        </div>
+                        <div class="name">
+                            Distributing Care Packages
+                        </div>
+                        <div class="skills">
+                            Skills Needed: IT/Photography
+                        </div>
+                        <div class="more">
+                            MORE INFO
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="submit">
+            <div class="btn" routerLink='/profile'>
+                <div class="btn-text">
+                    NEXT
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
