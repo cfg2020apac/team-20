@@ -65,12 +65,13 @@ def recommend_events(request):
         user_matrix_id = user_f.connection_id
         user_matrix_gender_female = user_f.gender.str.contains('Female')
         user_matrix_gender_male = user_f.gender.str.contains('Male')
-        user_matrix_employment_pt = user_f.employment_status.str.contains('Part Time')
-        user_matrix_employment_ft = user_f.employment_status.str.contains('Full Time')
-        user_matrix_employment_retired = user_f.employment_status.str.contains('Retired')
+        user_matrix_employment_others = user_f.employment_status.fillna(True)
         d = {'Other': True, 'Not Employed': True, 'Full Time': False, 'Part Time': False}
-        user_matrix_employment_others = user_f.employment_status.map(d)
-        user_matrix_employment_others = user_matrix_employment_others.fillna(True)
+        user_matrix_employment_others = user_matrix_employment_others.map(d)
+        #user_matrix_employment_pt = user_f.employment_status.str.contains('Part Time')
+        user_matrix_employment_pt = user_f.employment_status.astype(str).str.contains('Part Time')
+        user_matrix_employment_ft = user_f.employment_status.astype(str).str.contains('Full Time')
+        user_matrix_employment_retired = user_f.employment_status.astype(str).str.contains('Retired')
         user_matrix_hours_served_total = user_f.hours_served_all
         user_matrix_hours_served_oppo = user_f.hours_served_opportunity
         user_matrix_oppo_cat = user_f.opportunity_name.map(program_cat_match_dict).rename('oppo_cat')
@@ -93,7 +94,7 @@ def recommend_events(request):
         dummy_list = [0]*int(len(user_matrix_id)/2)+[1]*(len(user_matrix_id)-int(len(user_matrix_id)/2))
         random.shuffle(dummy_list)
         user_matrix_click_response = pd.Series(dummy_list)
-        
+    
         # Build feature matrix for user
         user_matrix = pd.DataFrame(user_matrix_id)
         for attr in feature:
@@ -130,16 +131,18 @@ def recommend_events(request):
             user_recommend_opportunity = []
             blank = 0
             for cat in pred_result_cats[j]:
-                if program_f['impact_area'].str.contains('Hungry').value_counts(False).iloc[0] == len(program_f):   #'Hungry' as a demo. Can do real search with large enough dataset
+                #print(cat)
+                if program_f['impact_area'].str.contains('Hunger').value_counts(False).iloc[0] == len(program_f):   #'Hungry' as a demo. Can do real search with large enough dataset
                     blank += 1
                     continue 
-            opportunities = program_f[program_f['impact_area'].str.contains('Hungry')]
-            user_recommend_opportunity.append(opportunities.iloc[random.randint(0,len(opportunities)-1)])
+                opportunities = program_f[program_f['impact_area'].str.contains('Hunger')]
+                user_recommend_opportunity.append(opportunities.iloc[random.randint(0,len(opportunities)-1)])
 
             if blank == len(pred_result_cats[j]):
-                continue   
+                continue
 
             user_recommend_opportunity = pd.concat(user_recommend_opportunity,axis=1).T
+            #print(user_recommend_opportunity)
             user_recommend_opportunity_json = user_recommend_opportunity.to_json(orient='records')
             #user_recommend_opportunities.append(user_recommend_opportunity)
             user_recommend_opportunities_json.append(user_recommend_opportunity_json)
@@ -148,6 +151,7 @@ def recommend_events(request):
         return user_recommend_opportunities_json
         #user_recommend_opportunity.to_json(r'user_recommend_program_{j}.json'.format(j=j))
         #return user_recommend_opportunity
+
 
     cats = ['Assistance and Support for Elderly',
             'Disaster & Emergency Services',
@@ -200,8 +204,8 @@ def recommend_events(request):
             'click_response']
 
     ## Import user & program data
-    user_f = pd.read_csv("/Users/jong/Documents/GitHub/team-20/recommendation_server/recommend_events/dummy_volunteer_profile.csv")
-    program_f = pd.read_csv('/Users/jong/Documents/GitHub/team-20/recommendation_server/recommend_events/handson_program.csv')
+    user_f = pd.read_csv("/home/force/recommend/recommendation_server/recommend_events/dummy_volunteer_profile_one.csv")
+    program_f = pd.read_csv('/home/force/recommend/recommendation_server/recommend_events/handson_program.csv')
 
     ## Uncomment if data is in raw .xlsx
     '''
@@ -233,11 +237,16 @@ def recommend_events(request):
 
     ## Generate recommendation result
     user_recommend_opportunities_json = gen_recom_result(user_matrix, pred_result_cats, program_f)
+    #print(user_recommend_opportunities_json)
+
+    #json_string = json.dumps([ob.__dict__ for ob in user_recommend_opportunities_json])
+    #print(json_string)
 
     ## Return JSON object
     result = return_json_var(user_recommend_opportunities_json)
 
-    return JsonResponse(result)
+
+    return JsonResponse(result, safe=False)
 
 
 
