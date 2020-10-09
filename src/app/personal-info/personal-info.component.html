@@ -1,0 +1,51 @@
+<!-- <p>profile works!</p> -->
+<div class="wrapper">
+    <app-profile-nav></app-profile-nav>
+    <div class="content">
+        <!-- test -->
+        <div class='top-bar'>
+            <div class="title">Volunteer Skills & Interest</div>
+        </div>
+        <div class="block">
+            <div class="header">
+                Language
+            </div>
+        </div>
+       <div class="block">
+            <div class="header">
+                Skills
+            </div>
+            <div class="container">
+                <div *ngFor="let skill of skills; let i = index">
+                    <div class="cell" [ngClass]='clickedSkills[i] ? "selected" : ""' (click)=skillOnClick(i)>
+                        <div class="text">
+                            {{skill}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+       <div class="block">
+            <div class="header">
+                Interest
+            </div>
+            <div class="container">
+                <div *ngFor="let interest of interests; let i = index">
+                    <div class="cell" [ngClass]='clickedInterests[i] ? "selected" : ""' (click)=interestOnClick(i)>
+                        <div class="text">
+                            {{interest}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+       <div class="submit">
+        <div class="btn" (click)='onSubmit()'>
+            <div class="btn-text">
+                SAVE
+            </div>
+        </div>
+    </div>
+        
+    </div>
+</div>

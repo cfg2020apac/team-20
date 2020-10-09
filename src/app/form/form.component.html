@@ -1,0 +1,100 @@
+<div class="wrapper">
+    <div class="content">
+        <section id="page-form">
+            <form >
+                <fieldset>
+                    <legend>Program Overview</legend>
+
+                    <label id="NGO" for="NGO-field">NGO: </label>
+                    <br/><input  type="text" id="NGO-field" placeholder="Please Enter NGO Name"/>
+                    <br/>
+
+                    <label id="IRD" for="IRD-field">IRD file number: </label>
+                    <br/><input  type="text" id="IRD-field" placeholder="Please Enter the IRD file number"/>
+                    <br/>
+
+                    <label id="ProgramName" for="ProgramName-field">Program Name: </label>
+                    <br/><input  type="text" id="ProgramName-field" placeholder="Please Enter Program Name"/>
+                    <br/>
+
+                    <label id="ProgramDescription" for="ProgramDescription-field">Program Name and Description: </label>
+                    <br/><input  type="text" id="ProgramDescription-field" placeholder="Please be clear and descriptive; this is what will attract volunteers to your program."/>
+                    <br/>
+
+                    <label id="KeyContact" for="KeyContact-field">Key contact person for service: </label>
+                    <fieldset id="KeyContact-field">
+                        <legend>Contact Info: </legend>
+                        <label id="KeyContact-Email" for="KeyContact-Email-field">Email: </label>
+                        <br/><input  type="email" id="KeyContact-Email-field"/>
+                        <br/>
+                        <label id="KeyContact-Phone" for="KeyContact-Phone-field">Phone: </label>
+                        <br/><input  type="tel" id="KeyContact-Phone-field"/>
+                        <br/>
+                        <label id="KeyContact-Title" for="KeyContact-Title-field">Title</label>
+                        <br/><input  type="text" id="KeyContact-Title-field"/>
+                    </fieldset>
+                    <br/>
+                    
+                    <label id="Location" for="Location-field">Location of Service Activity: </label>
+                    <br/><input  type="text" id="Location-field"/>
+                    <br/>
+
+                    <label id="NumberService" for="NumberService-field">Number and type of service users: </label>
+                    <br/><input  type="text" id="NumberService-field" placeholder="(e.g. 20 children aged 6-10/50 elderly people, etc.) (如：20名6-10歲兒童/50名老年人等)"/>
+                    <br/>
+
+                    <label id="NeedsDescript" for="NeedsDescript-field">Description of needs: </label><br/>
+                    <textarea id="NeedsDescript-field" placeholder="(e.g. ethnic minority students in need of Chinese-language homework help / children with physical disabilities needing assistance for outings / isolated elderly in need of home visits, etc.)"></textarea>
+                    <br/>
+                    
+                    <label id="NumSessions" for="NumSessions-field">Number of Sessions: </label>
+                    <br/><input  type="text" id="NumSessions-field"/>
+                    <br/>
+                    
+                    <label id="DatesSession" for="DatesSession-field">Date(s) of sessions: </label>
+                    <br/><input  type="date" id="DatesSession-field"/>
+                    <br/>
+                    
+                    <label id="ActivityTiming" for="ActivityTiming-field">Timing for activity (start to finish):</label>
+                    <fieldset>
+                        <legend>Start and End timings</legend>
+                        <label id="StartTime" for="StartTime-Field">Start Timing</label><br/><input  id="StartTime-Field" type="time"/><br/>
+                        <label id="EndTime" for="EndTime-Field">End Timing</label><br/><input  id="EndTime-Field" type="time"/><br/>
+                    </fieldset>
+                    <br/>
+                    
+                    <label id="NumVolunteers" for="NumVolunteers-field">Number of volunteers needed: </label>
+                    <br/><input  type="number" id="NumVolunteers-field" />
+                    <br/>
+                    
+                    <label id="VolunteerRoles" for="VolunteerRoles-field">Role of volunteers: </label><br/>
+                    <textarea id="VolunteerRoles-field" placeholder="(e.g. Volunteers will assist students with their homework / deliver basic necessities to residents living on the street / sort and chop rescued vegetables)"></textarea>
+                    <br/>
+                    
+                    <label id="AgeRequirement" for="AgeRequirement-field">Age requirement: </label>
+                    <br/><input  type="number" id="AgeRequirement-field" placeholder="min-age"/>
+                    <br/>
+                    
+                    <label id="LangReq" for="LangReq-field">Language Requirement: </label>
+                    <br/><input  type="text" id="LangReq-field" placeholder="(e.g. Must be Cantonese speakers only or 50% of volunteers must be Cantonese speaking)"/>
+                    <br/>
+                    
+                    <label id="Remarks" for="Remarks-field">Remarks or special requirements: </label>
+                    <br/><input  type="text" id="Remarks-field" placeholder="(e.g. Volunteers must attend separate briefing session in advance of activity)"/>
+                    <br/>
+                    
+                    <label id="Gather" for="Gather-field">Gathering place and time: </label>
+                    <br/><input  type="text" id="Gather-field"/>
+                    <br/>
+                    
+                    <label id="Budget" for="Budget-field">Budget needed (if any): </label>
+                    <br/><input type="number" id="Budget-field" min="0"/>
+                    <br/>
+
+                    <button id="SubmitButton" (click)="Submit()">Submit</button>
+
+                </fieldset>
+            </form>
+        </section>
+    </div>
+</div>
