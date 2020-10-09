@@ -1,0 +1,13 @@
+<div class="nav">
+    <div class="icon">
+        <img src='/assets/hands-on-icon.png'>
+    </div>
+    <div class="actions">
+        <div class="sub-items" *ngFor='let item of menuItems'>
+            {{item}}
+        </div>
+    </div>
+    <div class="profile">
+        <img routerLink='/profile' src='/assets/profile-icon.svg'>
+    </div>
+</div>

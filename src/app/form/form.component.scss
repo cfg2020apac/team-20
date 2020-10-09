@@ -1,0 +1,44 @@
+.wrapper{
+    height:100%;
+    .content{
+        padding-top:200px;
+        margin-bottom:100px;
+
+    }
+}
+input{
+    width: 70vw;
+}
+label{
+    font-size: 18px;
+}
+textarea{
+    width: 90vw;
+    height: 1in;
+}
+
+fieldset{
+    display: block;
+    margin: 10px auto;
+    border-radius: 15px;
+}
+
+input, label, textarea{
+    margin-bottom: 10px;
+}
+input:hover, label:hover, textarea:hover{
+filter: drop-shadow(2px 2px 2px silver);
+}
+
+legend{
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 10px;
+    background-color: RGBA(88, 33, 138, 0.8);
+    border-radius: 10px;
+    width: 90vw;
+}
+fieldset{
+    background-color: #EAE9E9;
+}
