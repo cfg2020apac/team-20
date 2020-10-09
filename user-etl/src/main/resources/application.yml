@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: user-etl
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    generate-ddl: true
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db
+    username: root
+    password: Farhan98
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+
+v1API: /api/v1
+
+server:
+  port: 8083
