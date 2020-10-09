@@ -1,0 +1,23 @@
+input{
+    width: 70vw;
+}
+
+textarea{
+    width: 90vw;
+    height: 1in;
+}
+
+fieldset{
+    display: block;
+    margin: 10px auto;
+    border-radius: 15px;
+}
+
+input, label, textarea{
+    margin-bottom: 10px;
+}
+input:hover, label:hover, textarea:hover{
+filter: drop-shadow(2px 2px 2px silver);
+}
+
+
