@@ -18,6 +18,7 @@
     display:flex;
     justify-content: space-between;
     .box{
+        cursor: pointer;
         color:white;
         background: #35B5B3;
         margin-top:30px;
@@ -41,6 +42,7 @@
 table {
     margin-top:35px;
     width: 100%;
+    margin-bottom:50px;
 }
 ::ng-deep .mat-table{
     background: rgba(196, 196, 196, 0.38);

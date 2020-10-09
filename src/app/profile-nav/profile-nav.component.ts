@@ -10,9 +10,9 @@ export class ProfileNavComponent implements OnInit {
   constructor() { }
   items=[
     {name:'Overview',link:'/profile'},
-    {name:'Personal Information',link:'/info'},
-    {name:'Skills & Interest',link:'/'},
-    {name:'My Teams',link:'/'},
+    {name:'Skills & Interests',link:'/info'},
+    {name:'Personal Information',link:'/'},
+    {name:'NGO Form',link:'/form'},
     {name:'Recommendation',link:'/'},
     {name:'Saved Searches',link:'/'},
   ]
