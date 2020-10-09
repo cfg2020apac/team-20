@@ -1,0 +1,8 @@
+com\handsonconnect\useretl\controller\NGOController.class
+com\handsonconnect\useretl\model\PopulationServed.class
+com\handsonconnect\useretl\UserEtlApplication.class
+com\handsonconnect\useretl\model\Volunteer.class
+com\handsonconnect\useretl\model\NGO.class
+com\handsonconnect\useretl\repository\NGORepository.class
+com\handsonconnect\useretl\model\VolunteerOpportunity.class
+com\handsonconnect\useretl\model\ImpactArea.class
