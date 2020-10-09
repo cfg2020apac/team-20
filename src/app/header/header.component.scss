@@ -1,0 +1,32 @@
+.nav{
+    // border:1px solid black;
+    // margin-top:50px; 
+    //test
+    position: fixed;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    width:100%;
+    justify-content: space-between;
+    z-index:100;
+    background:white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.actions{
+    display:flex;
+    flex-direction: row;
+    .sub-items{
+        font-size:21px;
+        color:#4A0E80;
+        font-family: "Gotham Medium";
+        min-width:140px;
+        text-align: center;
+        padding-left:10px;
+    }
+}
+.icon{
+    img{
+        width:100px;
+        height:100px;
+    }
+}
