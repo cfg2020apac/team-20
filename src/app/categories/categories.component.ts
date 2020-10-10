@@ -59,6 +59,6 @@ export class CategoriesComponent implements OnInit {
     
     //TODO: submit this.selectedCats to API
     console.log(this.selectedCats.join('_'));
-    this.router.navigate(['/profile/recommendations'], {queryParams : { categories: "ABC_DEF"}});
+    this.router.navigate(['/profile/recommendations'], {queryParams : { categories: this.selectedCats.join('_')}});
   }
 }

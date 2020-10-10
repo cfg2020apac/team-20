@@ -22,9 +22,12 @@ export class RecommendationComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       let paramstr = params.get('categories');
       let paramsL = paramstr.split("_");
+      console.log(paramstr);
+      console.log(paramsL);
       this.$http.get('/recommend/').subscribe( (result) => {
         // console.log(result[0]);
         // result is list of string, try to parse it
+        // console.log(JSON.parse(result));
         let usableResult = JSON.parse(result[0]);
         console.log(usableResult);
         this.cards=usableResult;
