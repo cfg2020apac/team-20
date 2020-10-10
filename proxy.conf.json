@@ -1,0 +1,10 @@
+{
+    "/recommend": {
+        "target": "http://172.19.18.62",
+        "pathRewrite": {
+            "^/recommend": "/recommend"
+        },
+        "secure": false, 
+        "loglevel": "debug"
+    }
+}

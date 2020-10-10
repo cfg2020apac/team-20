@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-categories',
@@ -9,28 +10,29 @@ import { Router } from '@angular/router';
 export class CategoriesComponent implements OnInit {
   categories=[
     "Assistance and Support for Elderly" ,
-    "Disaster & Emergency Services" ,
+    "Disaster and Emergency Services" ,
     "Education and Empowerment for Children and Youth" ,
     "Adult Education" ,
     "Environmental Conservation" ,
     "Education and Empowerment for Refugees and Asylum Seekers" ,
     "Health and Wellness" ,
-    "Hunger & Homelessness"  ,
+    "Hunger and Homelessness"  ,
     "Support for Homeless People" ,
     "Empowerment and Support for Domestic and Migrant Workers" ,
     "International Service" ,
-    "Internships & Employment" ,
-    "Justice & Legal Services" ,
-    "Refugee & Asylum Seekers Services" ,
+    "Internships and Employment" ,
+    "Justice and Legal Services" ,
+    "Refugee and Asylum Seekers Services" ,
     "Schools" ,
-    "Sports & Recreation" ,
+    "Sports and Recreation" ,
     "Technology" ,
     "Family Services" ,
-    "Arts & Culture" ,
-    "Civic & Community"
+    "Arts and Culture" ,
+    "Civic and Community"
   ]
   constructor(
     private router: Router,
+    private http: HttpClient,
   ) { }
   selectedCats=[];
   styles=[];
@@ -53,7 +55,10 @@ export class CategoriesComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.selectedCats);
+    // Reach to Recommendation Service 
+    
     //TODO: submit this.selectedCats to API
-    this.router.navigate(['/profile/recommendations']);
+    console.log(this.selectedCats.join('_'));
+    this.router.navigate(['/profile/recommendations'], {queryParams : { categories: "ABC_DEF"}});
   }
 }

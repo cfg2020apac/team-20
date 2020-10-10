@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recommendation',
@@ -8,10 +10,27 @@ import { Component, OnInit } from '@angular/core';
 
 export class RecommendationComponent implements OnInit {
 
-  constructor() { }
-  cards=[1,2,3,4,5,6];
+  constructor(private $http: HttpClient, private route: ActivatedRoute) { }
+  //cards=[1,2,3,4,5,6];
+  cards=[];
+  categories = [];
+
   ngOnInit(): void {
     //TODO: GET Cards from api
+    console.log(this.route.snapshot.paramMap);
+    // this.categories = this.route.snapshot.paramMap.get("categories").split('_');
+    this.route.queryParamMap.subscribe(params => {
+      let paramstr = params.get('categories');
+      let paramsL = paramstr.split("_");
+      this.$http.get('/recommend/').subscribe( (result) => {
+        // console.log(result[0]);
+        // result is list of string, try to parse it
+        let usableResult = JSON.parse(result[0]);
+        console.log(usableResult);
+        this.cards=usableResult;
+      });
+    })
+    console.log(this.categories);
   }
 
 }
